@@ -38,12 +38,22 @@ setTimeout(()=>{
 },3000)
 setInterval(memory, 3100);
 function memory(array) {
+    /* tentativo 1 = ho ciclato per l' listNum.lenght e non va
+       tentativo 2 = ciclo per 5 ma la lista di elementi rimane undefined
+       tentativo 3 = ho provato ad inserire un parseInt, ma a seconda di
+       come lo imposto prende solo il primo valore o l'ultimo
+       tentativo 4 = usare lo split, mi restituisce comunque una stringa
+       tentativo 5 =  usare il + davanti al messaggio del prompt, continua
+       a darmi una stringa in piu' annulla il messaggio del prompt scrivendo
+       NaN
+       tentativo 6 = tolgo il prompt dal ciclo restituisce comunque una stringa 
+       tentativo 7 = uso il map() o non riesco a concatenarlo oppure non funziona*/
     let listNum = [];
-    for (let i = 0; i < listNum.length; i++) {
-        listNum[i] = array;  
+    for (let i = 0; i < 5; i++) {
+        listNum[i] = array;
+        listNum.push(parseInt(prompt("Enter a number")))
     }
-    listNum= prompt(+"Inserisci i numeri visualizzati").split(",");
-    if(listNum==array){
+    if((listNum)==array){
         alert("Hai vinto!");
     }else{
         alert("Hai perso :(");
