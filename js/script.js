@@ -3,6 +3,7 @@ const num = document.getElementById("number");
 //variabile con il numero massimo 
 let maxNum = 99;
 let minNum=0;
+let array =[]
 //richiamo la funzione che genera numeri casuali
 getRandomNum()
 //creo funzione che genera numeri casuali
@@ -15,7 +16,6 @@ function getRandomNum(min,max) {
 console.log("questo è" ,getRandomNum(minNum,maxNum));
 //genero array vuoto
 function displayNum(){
-let array = [];
 //ciclo per inserire 5 numeri nell'array
 for (let index = 0; index < 5; index++) {
 //imposto array con indice che va da 0 a 4 in cui inserisco la funzione per num random con min 0  e max 99
@@ -37,7 +37,7 @@ setTimeout(()=>{
     displayNone.style.display='none';
 },3000)
 setInterval(memory, 3100);
-function memory(array) {
+function memory() {
     /* tentativo 1 = ho ciclato per l' listNum.lenght e non va
        tentativo 2 = ciclo per 5 ma la lista di elementi rimane undefined
        tentativo 3 = ho provato ad inserire un parseInt, ma a seconda di
@@ -49,16 +49,31 @@ function memory(array) {
        tentativo 6 = tolgo il prompt dal ciclo restituisce comunque una stringa 
        tentativo 7 = uso il map() o non riesco a concatenarlo oppure non funziona*/
     let listNum = [];
-    for (let i = 0; i < 5; i++) {
+    /*for (let i = 0; i < 5; i++) {
         listNum[i] = array;
-        listNum.push(parseInt(prompt("Enter a number")))
+        listNum.push((prompt("Enter a number")))
+    }*/
+
+    for (let index = 0; index < 5; index++) {
+        listNum[index] = parseInt(prompt("Inserisci il " + (index+1) + " numero"));
     }
-    if((listNum)==array){
+    let win=true;
+    let index = 0;
+    do{  
+        if(listNum[index]!=array[index]){
+            win=false;
+        }
+        index++;
+    }while(win && (index<5));
+
+
+    
+    if(win){
         alert("Hai vinto!");
     }else{
         alert("Hai perso :(");
     }
-    console.log(listNum);
+
 }
 
 
