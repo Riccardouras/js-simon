@@ -36,21 +36,21 @@ setTimeout(()=>{
     let displayNone = num;
     displayNone.style.display='none';
 },3000)
-function memory() {
+setInterval(memory, 3100);
+function memory(array) {
     let listNum = [];
     for (let i = 0; i < listNum.length; i++) {
-        listNum[i] = getRandomNum(minNum,maxNum);  
+        listNum[i] = array;  
     }
-    listNum= prompt("Inserisci i numeri visualizzati");
-    if(listNum==displayNum){
+    listNum= prompt(+"Inserisci i numeri visualizzati").split(",");
+    if(listNum==array){
         alert("Hai vinto!");
     }else{
         alert("Hai perso :(");
     }
     console.log(listNum);
-
 }
-setInterval(memory, 3100);
+
 
 
 
